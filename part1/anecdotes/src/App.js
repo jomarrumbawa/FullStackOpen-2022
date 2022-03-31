@@ -44,7 +44,7 @@ const App = () => {
       <p>
         {anecdotes[index]}
         <br />
-        has {votes[selected]} votes
+        has {votes[index]} votes
       </p>
     </div>
   )
