@@ -9,8 +9,15 @@ const App = () => {
     const newPerson = {
       name: newName,
     }
-    setNewName('')
-    setPersons(persons.concat(newPerson))
+
+    persons.map((person) => {
+      if (newPerson.name === person.name) {
+        alert(`${newPerson.name} is already in the phone book`)
+      } else {
+        setNewName('')
+        setPersons(persons.concat(newPerson))
+      }
+    })
   }
 
   const handleNameChange = (e) => {
