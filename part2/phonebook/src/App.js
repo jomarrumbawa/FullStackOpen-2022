@@ -19,6 +19,7 @@ const App = () => {
         alert(`${newPerson.name} is already in the phone book`)
       } else {
         setNewName('')
+        setNewNumber('')
         setPersons(persons.concat(newPerson))
       }
     })
