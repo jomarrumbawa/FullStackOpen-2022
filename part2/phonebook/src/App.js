@@ -25,15 +25,13 @@ const App = () => {
       number: newNumber,
     }
 
-    persons.map((person) => {
-      if (newPerson.name === person.name) {
-        alert(`${newPerson.name} is already in the phone book`)
-      } else {
-        setNewName('')
-        setNewNumber('')
-        setPersons(persons.concat(newPerson))
-      }
-    })
+    if (persons.find((person) => person.name === newPerson.name)) {
+      alert(`${newPerson.name} is already in the phone book`)
+    } else {
+      axios
+        .post('http://localhost:3001/persons', newPerson)
+        .then((res) => setPersons(persons.concat(res.data)))
+    }
   }
 
   const handleNumberChange = (e) => {
