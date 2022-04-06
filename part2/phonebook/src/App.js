@@ -49,6 +49,10 @@ const App = () => {
     setNewName(e.target.value)
   }
 
+  const handleDelete = (id) => {
+    personService.remove(id).then(hook)
+  }
+
   return (
     <div>
       <h2>Phonebook</h2>
@@ -65,7 +69,11 @@ const App = () => {
         handleNumberChange={handleNumberChange}
       />
       <h2>Numbers</h2>
-      <Persons persons={persons} filteredName={filteredName} />
+      <Persons
+        persons={persons}
+        filteredName={filteredName}
+        handleDelete={handleDelete}
+      />
     </div>
   )
 }
